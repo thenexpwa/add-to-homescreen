@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @package     add-to-homescreen
+ * @author      NexPWA <hello@nexpwa.com>
+ * @license     https://opensource.org/licenses/OSL-3.0 Open Software License v. 3.0 (OSL-3.0)
+ * @link        http://www.nexpwa.com/
+ * @copyright   Copyright © 2020 Codilar Technologies Pvt. Ltd.. All rights reserved
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="NexPWA_AddToHomescreen" setup_version="1.0.0"/>
+</config>

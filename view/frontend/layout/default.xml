@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @package     add-to-homescreen
+ * @author      NexPWA <hello@nexpwa.com>
+ * @license     https://opensource.org/licenses/OSL-3.0 Open Software License v. 3.0 (OSL-3.0)
+ * @link        http://www.nexpwa.com/
+ * @copyright   Copyright © 2020 Codilar Technologies Pvt. Ltd.. All rights reserved
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="head.additional">
+            <block class="NexPWA\AddToHomescreen\Block\PwaLinks" name="nexpwa.links" template="NexPWA_AddToHomescreen::pwa_links.phtml" />
+        </referenceBlock>
+        <referenceContainer name="before.body.end">
+            <block class="NexPWA\AddToHomescreen\Block\NetworkStatusIndicator" name="network.status.indicator" template="NexPWA_AddToHomescreen::network_status_indicator.phtml" />
+        </referenceContainer>
+    </body>
+</page>

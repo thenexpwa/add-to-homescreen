@@ -1,0 +1,77 @@
+<?php
+/**
+ * @package     add-to-homescreen
+ * @author      NexPWA <hello@nexpwa.com>
+ * @license     https://opensource.org/licenses/OSL-3.0 Open Software License v. 3.0 (OSL-3.0)
+ * @link        http://www.nexpwa.com/
+ * @copyright   Copyright © 2020 Codilar Technologies Pvt. Ltd.. All rights reserved
+ */
+?>
+<?php
+/** @var \NexPWA\AddToHomescreen\Block\NetworkStatusIndicator $block */
+?>
+<?php if ($block->isActive()): ?>
+<div id="NetworkStatusIndicator" class="network-status-indicator is-loading hide" aria-label="<?php echo __('No internet connection') ?>">
+    <span class="title" aria-label="<?php echo __('Title') ?>"><?php echo __('You are currently offline. Some features might not work') ?></span>
+</div>
+<script type="text/javascript">
+    require(['jquery'], function ($) {
+        var NetWorkStatus = {
+            onLineListener: null,
+            offLineListener: null,
+            addOnLineListener: function (callback) {
+                if (this.getOnLineListener()) {
+                    window.removeEventListener('online', this.getOnLineListener);
+                }
+                this.onLineListener = window.addEventListener('online', callback);
+            },
+            addOffLineListener: function (callback) {
+                if (this.getOffLineListener()) {
+                    window.removeEventListener('offline', this.getOffLineListener);
+                }
+                this.offLineListener = window.addEventListener('offline', callback);
+            },
+            getOnLineListener: function () {
+                return this.onLineListener;
+            },
+            getOffLineListener: function () {
+                return this.offLineListener;
+            },
+            getNetworkStatus: function () {
+                return window.navigator && window.navigator.onLine;
+            }
+        };
+        var element = $('#NetworkStatusIndicator');
+        element.removeClass('is-loading');
+        if (!NetWorkStatus.getNetworkStatus()) {
+            element.removeClass('hide');
+        }
+        NetWorkStatus.addOnLineListener(function() {
+            element.addClass('hide');
+        });
+        NetWorkStatus.addOffLineListener(function() {
+            element.removeClass('hide');
+        });
+    });
+</script>
+<style type="text/css">
+    .network-status-indicator {
+        position: fixed;
+        transition-duration: 0.3s;
+        width: 100%;
+        text-align: center;
+        font-size: 2rem;
+        padding: 1rem 0;
+        background: #000000;
+        color: #fafafa;
+        top: 0;
+        z-index: 10000;
+    }
+    .network-status-indicator.hide {
+        transform: translateY(-100%)
+    }
+    .network-status-indicator.is-loading {
+        display: none;
+    }
+</style>
+<?php endif; ?>

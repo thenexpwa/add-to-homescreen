@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @package     add-to-homescreen
+ * @author      NexPWA <hello@nexpwa.com>
+ * @license     https://opensource.org/licenses/OSL-3.0 Open Software License v. 3.0 (OSL-3.0)
+ * @link        http://www.nexpwa.com/
+ * @copyright   Copyright © 2020 Codilar Technologies Pvt. Ltd.. All rights reserved
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <pwa>
+            <general>
+                <is_offline_indicator_active>1</is_offline_indicator_active>
+            </general>
+            <manifest>
+                <is_active>1</is_active>
+                <short_name>Magento</short_name>
+                <name>Magento PWA</name>
+                <description>A seamless E-commerce experience</description>
+                <start_url>/?source=pwa</start_url>
+                <display>standalone</display>
+                <background_color>#f37520</background_color>
+                <theme_color>#f37520</theme_color>
+            </manifest>
+            <service_worker>
+                <is_active>1</is_active>
+                <cache_version>v1</cache_version>
+                <precache_urls>/,/checkout</precache_urls>
+                <show_cached_data>1</show_cached_data>
+                <no_internet_html><![CDATA[
+<html>
+            <head>
+                <title>NexPWA | Could not load</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                <style type="text/css">
+                	body {
+                		margin: 0;
+                	}
+                    #main {
+                    	height: 100vh;
+                        text-align: center;
+                        padding-top: 10vh;
+                        font-family: arial,serif;
+                        background-color: #f2f2f2;
+                    }
+                </style>
+            </head>
+            <body>
+                <div id="main">
+                    <div class="logo">
+                        <img src="data:image/png;base64,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" />
+                    </div>
+                    <h1>The page you requested for could not be fetched at the moment.</h1>
+                    <h1>Please check you network connection and try again</h1>
+                </div>
+            </body>
+        </html>
+                ]]></no_internet_html>
+            </service_worker>
+        </pwa>
+    </default>
+</config>

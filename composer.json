@@ -1,0 +1,27 @@
+{
+  "name": "nexpwa/add-to-homescreen",
+  "description": "A magento extension to convert your Magento 2 store to a PWA with cool functionalities like Add To Homescreen, Offline browsing, etc.",
+  "homepage": "https://www.nexpwa.com/add-to-homescreen-m2",
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "support": {
+    "issues": "https://github.com/thenexpwa/add-to-homescreen/issues",
+    "source": "https://github.com/thenexpwa/add-to-homescreen"
+  },
+  "require": {
+    "php": "~7.1.3||~7.2.0||~7.3.0",
+    "magento/framework": "*"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "NexPWA\\AddToHomescreen\\": ""
+    }
+  }
+}

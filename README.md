@@ -21,4 +21,4 @@ Following the installation,
 - Enjoy your new supercharged website!
 
 
-If you're looking to drive your website at warp speed by moving towards a complete PWA, then [NexPWA](https://www.nexpwa.com/) might be the solution for you
+### If you're looking to drive your website at warp speed by moving towards a complete PWA, then [NexPWA](https://www.nexpwa.com/) might be the solution for you
